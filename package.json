@@ -33,14 +33,17 @@
     "bin"
   ],
   "scripts": {
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "node scripts/npm-package.mjs guard",
     "dev": "esno src/commands/ni.ts",
     "nr": "esno src/commands/nr.ts",
     "build": "unbuild",
     "stub": "unbuild --stub",
-    "release": "bumpp && npm publish",
+    "release": "bumpp && npm run pack:release && npm run pub",
     "lint": "eslint .",
-    "test": "vitest"
+    "test": "vitest",
+    "prepack": "node scripts/npm-package.mjs guard",
+    "pack:release": "node scripts/npm-package.mjs pack",
+    "pub": "node scripts/npm-package.mjs publish"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.40.2",
@@ -66,6 +69,5 @@
     "vitest": "^0.34.2",
     "which": "^3.0.1"
   },
-  "eslintConfig": {
-  }
+  "eslintConfig": {}
 }

@@ -83,3 +83,6 @@ _storage.json
 
 # System files
 .DS_Store
+
+# Verified npm archives, never commit.
+.npm-package/
