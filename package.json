@@ -1,7 +1,7 @@
 {
   "name": "@datadayrepos/ni",
   "type": "module",
-  "version": "0.21.8",
+  "version": "0.21.9",
   "packageManager": "pnpm@8.6.12",
   "description": "Use the right package manager. Disconnected fork of original.",
   "license": "MIT",
@@ -39,7 +39,7 @@
     "build": "unbuild",
     "stub": "unbuild --stub",
     "release": "bumpp && npm run pack:release && npm run pub",
-    "lint": "eslint .",
+    "lint": "eslint . --ext .js,.mjs,.ts",
     "test": "vitest",
     "prepack": "node scripts/npm-package.mjs guard",
     "pack:release": "node scripts/npm-package.mjs pack",
@@ -69,5 +69,8 @@
     "vitest": "^0.34.2",
     "which": "^3.0.1"
   },
-  "eslintConfig": {}
+  "eslintConfig": {
+    "extends": "@antfu",
+    "root": true
+  }
 }
