@@ -86,3 +86,4 @@ _storage.json
 
 # Verified npm archives, never commit.
 .npm-package/
+dependency-update-report.md

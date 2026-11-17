@@ -2,6 +2,18 @@
 This is a disconnected fork of the original at:
 https://github.com/antfu/ni
 
+Repository development uses the existing `pnpm@8.6.12` pin. Use `corepack pnpm install`
+for development; `pnpm-lock.yaml` is the authoritative lockfile. Do not generate
+a repository `package-lock.json`. This does not change NI's support for other
+package managers in consuming projects, or npm's role as the publishing client.
+
+For private dependency updates, run `./shell/check-private-updates.sh`. Its
+canonical launcher and `shell/check-private-updates/main.mjs` must be copied
+byte-for-byte from Hub, not rewritten. The declared SemVer prerequisite supports
+scan-first, coloured current/proposed approvals; Enter defaults to No. The
+original updater remains unchanged as `shell/check-private-updates_OLD.sh`.
+`--help` is read-only; the former `--report-only` mode is no longer supported.
+
 
 ~~*`npm i` in a yarn project, again? F\*\*k!*~~
 
